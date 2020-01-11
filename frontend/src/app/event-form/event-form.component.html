@@ -1,0 +1,59 @@
+<form [formGroup]="eventFormGroup" class="event-form">
+  <mat-form-field>
+    <input matInput type="text" placeholder="Title" formControlName="title" required>
+    <mat-hint align="end">The title of the event</mat-hint>
+    <mat-error *ngIf="eventFormGroup.controls.title.hasError('required')">Title is required</mat-error>
+    <mat-error *ngIf="eventFormGroup.controls.title.hasError('titleAlreadyExists')">Title already exists</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Genre" formControlName="genre">
+      <mat-option [value]="null">Unknown</mat-option>
+      <mat-option [value]="genre.key"
+                  *ngFor="let genre of genreService.genreNames | keyvalue">{{genre.value}}</mat-option>
+    </mat-select>
+    <mat-hint align="end">The genre of the event</mat-hint>
+  </mat-form-field>
+  <app-date placeholder="date" formControlName="date" hint="The date of the event"
+            [required]="false"></app-date>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Plot" formControlName="plot" ></textarea>
+    <mat-hint align="end">The plot of the event</mat-hint>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="number" placeholder="Duration" formControlName="duration">
+    <mat-hint align="end">The duration of the event</mat-hint>
+    <mat-error *ngIf="eventFormGroup.controls.duration.hasError('max')">Duration is too long</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Country" formControlName="country">
+      <mat-option [value]="null">Unknown</mat-option>
+      <mat-option [value]="countryOption.id"
+                  *ngFor="let countryOption of countryOptions">{{countryOption.name}}</mat-option>
+    </mat-select>
+    <mat-hint align="end">The country of the event</mat-hint>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Employees" formControlName="worker" multiple>
+      <mat-option [value]="employeeOption.id"
+                  *ngFor="let employeeOption of employeeOptions">{{employeeOption.name}}</mat-option>
+    </mat-select>
+    <mat-hint align="end">The employee for the event</mat-hint>
+  </mat-form-field>
+  <br/>
+  <div>
+    Rating
+    <bar-rating matInput formControlName="rating" [max]="5"></bar-rating>
+    <br/>
+  </div>
+  <div>
+    <app-mediainput formControlName="pictures"></app-mediainput>
+  </div>
+  <mat-card-actions align="center">
+    <button mat-raised-button color="primary" [disabled]="!eventFormGroup.valid" (click)="createEvent()">
+      <span *ngIf="!eventFormGroup.controls.id.value">Create</span>
+      <span *ngIf="eventFormGroup.controls.id.value">Update</span>
+    </button>
+  </mat-card-actions>
+</form>

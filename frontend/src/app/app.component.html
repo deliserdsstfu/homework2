@@ -1,0 +1,15 @@
+
+<mat-toolbar *ngIf="isLoggedIn">
+  <button mat-button [matMenuTriggerFor]="eventMenu">Events</button>
+  <mat-menu #eventMenu="matMenu">
+    <button mat-menu-item routerLink="event-list">List events</button>
+    <button mat-menu-item routerLink="event-form">Create event</button>
+  </mat-menu>
+  <button mat-button [matMenuTriggerFor]="countryMenu">Countries</button>
+  <mat-menu #countryMenu="matMenu">
+    <button mat-menu-item routerLink="country-list">List countries</button>
+    <button mat-menu-item routerLink="country-form">Create country</button>
+  </mat-menu>
+  <app-logout></app-logout>
+</mat-toolbar>
+<router-outlet></router-outlet>

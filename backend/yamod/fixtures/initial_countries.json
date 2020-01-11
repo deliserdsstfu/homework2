@@ -1,0 +1,18 @@
+[
+  {
+    "model": "yamod.country",
+    "pk": 1,
+    "fields": {
+      "name": "Österreich",
+      "capital": "Wien"
+    }
+  },
+  {
+    "model": "yamod.country",
+    "pk": 2,
+    "fields": {
+      "name": "Deutschland",
+      "capital": "Berlin"
+    }
+  }
+]

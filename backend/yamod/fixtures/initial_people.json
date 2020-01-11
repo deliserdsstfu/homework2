@@ -1,0 +1,38 @@
+[
+  {
+    "model": "yamod.person",
+    "pk": 1,
+    "fields": {
+      "first_name": "Tom",
+      "last_name": "Hanks",
+      "year_of_birth": 1956
+    }
+  },
+  {
+    "model": "yamod.person",
+    "pk": 2,
+    "fields": {
+      "first_name": "Robert",
+      "last_name": "Downey Jr.",
+      "year_of_birth": 1965
+    }
+  },
+  {
+    "model": "yamod.person",
+    "pk": 3,
+    "fields": {
+      "first_name": "Scarlett",
+      "last_name": "Johansson",
+      "year_of_birth": 1984
+    }
+  },
+  {
+    "model": "yamod.person",
+    "pk": 4,
+    "fields": {
+      "first_name": "Emma",
+      "last_name": "Watson",
+      "year_of_birth": 1990
+    }
+  }
+]
